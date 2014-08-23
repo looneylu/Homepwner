@@ -15,4 +15,10 @@
 @property (nonatomic) int value;
 @property (nonatomic, strong) NSDate *dateOfCreation;
 
+- (NSString *) description;
++ (instancetype) randomItem;
+- (instancetype) initWithItemName:(NSString *)name
+                   valueInDollars:(int) value
+                     serialNumber:(NSString *)sNumber;
+
 @end
