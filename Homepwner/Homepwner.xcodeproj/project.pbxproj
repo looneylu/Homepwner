@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		841B1ECE19A9339B000387BE /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B1ECD19A9339B000387BE /* Item.m */; };
+		841B1ED119A95FE3000387BE /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B1ED019A95FE3000387BE /* DetailViewController.m */; };
 		84450AC819A924FB00529EBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84450AC719A924FB00529EBC /* Foundation.framework */; };
 		84450ACA19A924FB00529EBC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84450AC919A924FB00529EBC /* CoreGraphics.framework */; };
 		84450ACC19A924FC00529EBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84450ACB19A924FC00529EBC /* UIKit.framework */; };
@@ -38,6 +39,8 @@
 /* Begin PBXFileReference section */
 		841B1ECC19A9339B000387BE /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		841B1ECD19A9339B000387BE /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		841B1ECF19A95FE3000387BE /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		841B1ED019A95FE3000387BE /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		84450AC419A924FB00529EBC /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84450AC719A924FB00529EBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84450AC919A924FB00529EBC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -161,6 +164,8 @@
 		84450B0419A9261800529EBC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				841B1ECF19A95FE3000387BE /* DetailViewController.h */,
+				841B1ED019A95FE3000387BE /* DetailViewController.m */,
 				84450B0C19A92DAE00529EBC /* ItemsTVC.h */,
 				84450B0D19A92DAE00529EBC /* ItemsTVC.m */,
 			);
@@ -280,6 +285,7 @@
 				84450AD819A924FC00529EBC /* AppDelegate.m in Sources */,
 				84450B0719A9263100529EBC /* ItemStore.m in Sources */,
 				84450AD419A924FC00529EBC /* main.m in Sources */,
+				841B1ED119A95FE3000387BE /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
