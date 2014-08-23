@@ -10,7 +10,9 @@
 #import "ItemStore.h"
 #import "Item.h"
 
-@interface ItemsTVC ()
+@interface ItemsTVC () <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -26,6 +28,9 @@
         {
             [[ItemStore sharedStore] createItem]; 
         }
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
 }
 
 
