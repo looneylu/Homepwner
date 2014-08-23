@@ -13,6 +13,7 @@
 @interface ItemsTVC () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
 @end
 
@@ -23,18 +24,12 @@
 {
     [super viewDidLoad];
     
-    if (self)
-        for (int i = 0 ; i < 5 ; i++)
-        {
-            [[ItemStore sharedStore] createItem]; 
-        }
-    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
 }
 
 
-#pragma mark - Table view data source
+#pragma mark - TableView DataSource & Delegate Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -62,5 +57,56 @@
     return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // allow editing of row in table view
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // if the tableView is asking to delete an object
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        // remove item from ItemStore
+        NSArray *items = [[ItemStore sharedStore] allItems];
+        Item *item = items[indexPath.row];
+        [[ItemStore sharedStore] removeItem:item];
+        
+//        [self.tableView reloadData];
+        //remove the last row from array
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    [[ItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row]; 
+}
+
+#pragma mark - IBAction Methods
+
+- (IBAction)editButtonPressed:(UIBarButtonItem *)sender
+{
+    // if the table view is in edit mode, turn off edit mode and relabel button
+    if (self.tableView.editing)
+    {
+        self.tableView.editing = NO;
+        self.editButton.title = @"Edit";
+    }
+    // if the table view isn't in edit mode, turn on edit mode and relabel button
+    else
+    {
+        self.tableView.editing = YES;
+        self.editButton.title = @"Done";
+    }
+}
+
+- (IBAction)addButtonPressed:(UIBarButtonItem *)sender
+{
+    // create a new Item and add it to the store
+    [[ItemStore sharedStore] createItem];
+    [self.tableView reloadData];
+}
 
 @end
