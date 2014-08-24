@@ -7,6 +7,7 @@
 //
 
 #import "ItemDetailViewController.h"
+#import "ImageStore.h"
 
 @interface ItemDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
