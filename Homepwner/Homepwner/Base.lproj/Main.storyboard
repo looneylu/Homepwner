@@ -65,7 +65,7 @@
                         <viewControllerLayoutGuide type="top" id="cux-VK-Xjd"/>
                         <viewControllerLayoutGuide type="bottom" id="paZ-YJ-dmv"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="O35-DH-O35">
+                    <view key="view" contentMode="scaleToFill" id="O35-DH-O35" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -129,9 +129,13 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="backgroundTapped:" destination="tEA-Q2-Bwb" eventType="valueChanged" id="D6q-DT-3Ol"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="5hp-Ct-o2g"/>
                     <connections>
+                        <outlet property="control" destination="O35-DH-O35" id="QMI-G1-wZz"/>
                         <outlet property="dateLabel" destination="m0M-7U-QVs" id="JGj-Na-Bou"/>
                         <outlet property="imageView" destination="fg4-EF-PXi" id="wE4-ZW-10S"/>
                         <outlet property="nameTextField" destination="fuv-ZB-bMT" id="8oF-88-2rs"/>

@@ -9,7 +9,7 @@
 #import "ItemDetailViewController.h"
 #import "ImageStore.h"
 
-@interface ItemDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface ItemDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *serialTextField;
@@ -28,6 +28,10 @@
 {
     [super viewWillAppear:animated];
     // Do any additional setup after loading the view.
+    self.nameTextField.delegate = self;
+    self.serialTextField.delegate = self;
+    self.valueTextField.delegate = self;
+    
     self.nameTextField.text = self.item.name;
     self.serialTextField.text = self.item.serialNumber;
     self.valueTextField.text = [NSString stringWithFormat:@"$%i", self.item.value];
@@ -45,6 +49,12 @@
 }
 
 #pragma mark - IBAction Methods
+
+- (IBAction)backgroundTapped:(id)sender
+{
+    // dismisses keyboard
+    [self.view endEditing:YES];
+}
 
 - (IBAction)cameraButtonPressed:(id)sender
 {
@@ -83,6 +93,12 @@
     
     // Take image picker off the screen
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 /*
