@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 
 @end
 
@@ -28,6 +29,9 @@
 {
     [super viewWillAppear:animated];
     // Do any additional setup after loading the view.
+    
+    UIInterfaceOrientation io = [[UIApplication sharedApplication] statusBarOrientation];
+    [self prepareViewForOrientation:io];
 
     // make sure text fields respond to delegate methods
     self.nameTextField.delegate = self;
@@ -48,6 +52,36 @@
     
     // use that image to put on the in the imageView
     self.imageView.image = imageToDisplay;
+}
+
+#pragma mark - Device Orientation Methods
+
+- (void)prepareViewForOrientation:(UIInterfaceOrientation)orientation
+{
+    // if it's an iPad, there's no prep necessary
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+    {
+        return;
+    }
+    
+    // if the device is in landscape orientation, and it isn't an iPad
+    // disable the camera button and hide the image view
+    if (UIInterfaceOrientationIsLandscape(orientation))
+    {
+        self.imageView.hidden = YES;
+        self.cameraButton.enabled = NO;
+    }
+    else
+    {
+        self.imageView.hidden = NO;
+        self.cameraButton.enabled = YES;
+    }
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+                                         duration:(NSTimeInterval)duration
+{
+    [self prepareViewForOrientation:toInterfaceOrientation];
 }
 
 #pragma mark - IBAction Methods

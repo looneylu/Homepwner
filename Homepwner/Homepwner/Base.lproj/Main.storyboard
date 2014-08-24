@@ -184,6 +184,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Item Details" id="ANR-7r-gyv"/>
                     <connections>
+                        <outlet property="cameraButton" destination="EL5-Eo-Dei" id="vr6-dm-wCr"/>
                         <outlet property="dateLabel" destination="IzS-rA-ctl" id="dga-Hi-ter"/>
                         <outlet property="imageView" destination="ZFG-xl-2gE" id="T8o-Tu-POZ"/>
                         <outlet property="nameTextField" destination="9iC-KT-1Ne" id="P6W-xz-9X9"/>
