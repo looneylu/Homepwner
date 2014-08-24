@@ -1,5 +1,5 @@
 //
-//  DetailViewController.h
+//  ItemDetailViewController.h
 //  Homepwner
 //
 //  Created by Luis Carbuccia on 8/23/14.
@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Item.h"
 
-@interface DetailViewController : UIView
+@interface ItemDetailViewController : UIViewController
+
+@property (nonatomic, strong) Item *item; 
 
 @end

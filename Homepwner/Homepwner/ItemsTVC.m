@@ -9,6 +9,7 @@
 #import "ItemsTVC.h"
 #import "ItemStore.h"
 #import "Item.h"
+#import "ItemDetailViewController.h"
 
 @interface ItemsTVC () <UITableViewDataSource, UITableViewDelegate>
 
@@ -84,6 +85,11 @@
     [[ItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row]; 
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"toDetailView" sender:indexPath]; 
+}
+
 #pragma mark - IBAction Methods
 
 - (IBAction)editButtonPressed:(UIBarButtonItem *)sender
@@ -107,6 +113,23 @@
     // create a new Item and add it to the store
     [[ItemStore sharedStore] createItem];
     [self.tableView reloadData];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+   if ([segue.destinationViewController isKindOfClass:[ItemDetailViewController class]])
+    {
+        // prepare item for next view controller
+        NSIndexPath *indexPath = sender;
+        NSArray *items = [[ItemStore sharedStore] allItems];
+        Item *item = [items objectAtIndex:indexPath.row];
+        ItemDetailViewController *itemDetailVC = segue.destinationViewController;
+        
+        itemDetailVC.item = [[Item alloc] init];
+        itemDetailVC.item = item; 
+    }
 }
 
 @end
