@@ -31,7 +31,7 @@
     // create an NSUUID object - and get its string representation
     NSUUID *uuid = [[NSUUID alloc] init];
     NSString *key = [uuid UUIDString];
-    self.itemKey = key;
+    self.key = key;
     
     return self; 
 }

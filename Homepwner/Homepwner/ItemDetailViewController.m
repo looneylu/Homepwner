@@ -24,9 +24,9 @@
 
 #pragma mark - View...
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewWillAppear:animated];
     // Do any additional setup after loading the view.
     self.nameTextField.text = self.item.name;
     self.serialTextField.text = self.item.serialNumber;
@@ -35,6 +35,13 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterLongStyle];
     self.dateLabel.text = [formatter stringFromDate:self.item.dateOfCreation];
+    
+    // get image for corresponding key from the image store
+    NSString *imageKey = self.item.key;
+    UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:imageKey];
+    
+    // use that image to put on the in the imageView
+    self.imageView.image = imageToDisplay;
 }
 
 #pragma mark - IBAction Methods
@@ -67,6 +74,9 @@
 {
     // Get picked image from infor dictionary
     UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    // store the image in the ImageStore for this key
+    [[ImageStore sharedStore] setImage:image forKey:self.item.key];
     
     // put that image onto the screen in our image view
     self.imageView.image = image;
