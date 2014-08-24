@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		841B1ECE19A9339B000387BE /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B1ECD19A9339B000387BE /* Item.m */; };
 		841B1ED419A9618F000387BE /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B1ED319A9618F000387BE /* ItemDetailViewController.m */; };
+		841B1ED719A97B71000387BE /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B1ED619A97B71000387BE /* ImageStore.m */; };
 		84450AC819A924FB00529EBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84450AC719A924FB00529EBC /* Foundation.framework */; };
 		84450ACA19A924FB00529EBC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84450AC919A924FB00529EBC /* CoreGraphics.framework */; };
 		84450ACC19A924FC00529EBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84450ACB19A924FC00529EBC /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 		841B1ECD19A9339B000387BE /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		841B1ED219A9618F000387BE /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
 		841B1ED319A9618F000387BE /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
+		841B1ED519A97B71000387BE /* ImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStore.h; sourceTree = "<group>"; };
+		841B1ED619A97B71000387BE /* ImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageStore.m; sourceTree = "<group>"; };
 		84450AC419A924FB00529EBC /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84450AC719A924FB00529EBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84450AC919A924FB00529EBC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -175,6 +178,8 @@
 		84450B0819A9263A00529EBC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				841B1ED519A97B71000387BE /* ImageStore.h */,
+				841B1ED619A97B71000387BE /* ImageStore.m */,
 				841B1ECC19A9339B000387BE /* Item.h */,
 				841B1ECD19A9339B000387BE /* Item.m */,
 				84450B0519A9263100529EBC /* ItemStore.h */,
@@ -282,6 +287,7 @@
 			files = (
 				841B1ECE19A9339B000387BE /* Item.m in Sources */,
 				84450B0E19A92DAE00529EBC /* ItemsTVC.m in Sources */,
+				841B1ED719A97B71000387BE /* ImageStore.m in Sources */,
 				84450AD819A924FC00529EBC /* AppDelegate.m in Sources */,
 				84450B0719A9263100529EBC /* ItemStore.m in Sources */,
 				841B1ED419A9618F000387BE /* ItemDetailViewController.m in Sources */,

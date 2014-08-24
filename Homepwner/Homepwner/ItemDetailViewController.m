@@ -8,17 +8,20 @@
 
 #import "ItemDetailViewController.h"
 
-@interface ItemDetailViewController ()
+@interface ItemDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *serialTextField;
 @property (strong, nonatomic) IBOutlet UITextField *valueTextField;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIToolbar *toolBar;
 
 @end
 
 @implementation ItemDetailViewController
 
+#pragma mark - View...
 
 - (void)viewDidLoad
 {
@@ -31,6 +34,44 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterLongStyle];
     self.dateLabel.text = [formatter stringFromDate:self.item.dateOfCreation];
+}
+
+#pragma mark - IBAction Methods
+
+- (IBAction)cameraButtonPressed:(id)sender
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    // if the device has a camera, take a picture. Otherwise, just from photo library
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    else
+    {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    imagePicker.delegate = self;
+    
+    // place image picker on the screen
+    [self presentViewController:imagePicker
+                       animated:YES
+                     completion:nil];
+}
+
+#pragma mark - Delegate Methods
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // Get picked image from infor dictionary
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    // put that image onto the screen in our image view
+    self.imageView.image = image;
+    
+    // Take image picker off the screen
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*
