@@ -28,6 +28,8 @@
 {
     [super viewWillAppear:animated];
     // Do any additional setup after loading the view.
+
+    // make sure text fields respond to delegate methods
     self.nameTextField.delegate = self;
     self.serialTextField.delegate = self;
     self.valueTextField.delegate = self;
@@ -49,12 +51,6 @@
 }
 
 #pragma mark - IBAction Methods
-
-- (IBAction)backgroundTapped:(id)sender
-{
-    // dismisses keyboard
-    [self.view endEditing:YES];
-}
 
 - (IBAction)cameraButtonPressed:(id)sender
 {
