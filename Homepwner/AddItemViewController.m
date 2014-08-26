@@ -8,31 +8,81 @@
 
 #import "AddItemViewController.h"
 
-@interface AddItemViewController ()
+
+@interface AddItemViewController () <UITextFieldDelegate>
+
+@property (strong, nonatomic) IBOutlet UITextField *itemNameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *serialTextField;
+@property (strong, nonatomic) IBOutlet UITextField *valueTextField;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+
+@property (strong, nonatomic) NSDate *date;
 
 @end
 
 @implementation AddItemViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+#pragma mark - View Controller Life Cycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // save button should be disabled when view first appears since fields will be empty
+    self.saveButton.enabled = NO;
+    
+    // make sure text fields respond to delegate methods
+    self.itemNameTextField.delegate = self;
+    self.serialTextField.delegate = self;
+    self.valueTextField.delegate = self;
+    
+    // create a date of creation
+    self.date = [[NSDate alloc] init];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    self.dateLabel.text = [dateFormatter stringFromDate:self.date];
 }
 
-- (void)didReceiveMemoryWarning
+-(void)viewWillAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewWillAppear:animated];
+    
+}
+
+#pragma mark - IBAction Methods
+
+- (IBAction)saveButtonPressed:(id)sender
+{
+    // save item details
+    self.item.name = self.itemNameTextField.text;
+    self.item.serialNumber = self.serialTextField.text;
+    self.item.value = [self.valueTextField.text intValue];
+
+    // save date of creation
+    self.item.dateOfCreation = self.date;
+}
+
+- (IBAction)cancelButtonPressed:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)cameraButtonPressed:(id)sender {
+}
+
+#pragma mark - Delegate Methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    if ([self.itemNameTextField.text length] > 0 && [self.serialTextField.text length] > 0 && [self.valueTextField.text length] > 0)
+        self.saveButton.enabled = YES;
+    
+    return YES;
 }
 
 /*

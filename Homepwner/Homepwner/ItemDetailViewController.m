@@ -39,9 +39,9 @@
     [self prepareViewForOrientation:io];
 
     // make sure text fields respond to delegate methods
-    self.nameTextField.delegate = self;
-    self.serialTextField.delegate = self;
-    self.valueTextField.delegate = self;
+//    self.nameTextField.delegate = self;
+//    self.serialTextField.delegate = self;
+//    self.valueTextField.delegate = self;
     
     self.nameTextField.text = self.item.name;
     self.serialTextField.text = self.item.serialNumber;

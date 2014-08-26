@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Item.h"
 
 @interface AddItemViewController : UIViewController
+
+@property (nonatomic, strong) Item *item; 
 
 @end
