@@ -11,6 +11,7 @@
 
 @interface AddItemViewController : UIViewController
 
-@property (nonatomic, strong) Item *item; 
+@property (nonatomic, strong) Item *item;
+@property (nonatomic) UIModalPresentationStyle modalPresentationStyle;
 
 @end

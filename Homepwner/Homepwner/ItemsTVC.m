@@ -10,6 +10,7 @@
 #import "ItemStore.h"
 #import "Item.h"
 #import "ItemDetailViewController.h"
+#import "AddItemViewController.h"
 
 @interface ItemsTVC () <UITableViewDataSource, UITableViewDelegate>
 
@@ -117,26 +118,38 @@
 
 - (IBAction)addButtonPressed:(UIBarButtonItem *)sender
 {
-    // create a new Item and add it to the store
-    [[ItemStore sharedStore] createItem];
-    [self.tableView reloadData];
+//    // create a new Item and add it to the store
+//    [[ItemStore sharedStore] createItem];
+//    [self.tableView reloadData];
+
 }
 
 #pragma mark - Navigation
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
    if ([segue.destinationViewController isKindOfClass:[ItemDetailViewController class]])
     {
-        // prepare item for next view controller
-        NSIndexPath *indexPath = sender;
-        NSArray *items = [[ItemStore sharedStore] allItems];
-        Item *item = [items objectAtIndex:indexPath.row];
-        ItemDetailViewController *itemDetailVC = segue.destinationViewController;
-        
-        itemDetailVC.item = [[Item alloc] init];
-        itemDetailVC.item = item; 
+        if ([segue.identifier isEqualToString:@"toDetailView"])
+        {
+            // prepare item for next view controller
+            NSIndexPath *indexPath = sender;
+            NSArray *items = [[ItemStore sharedStore] allItems];
+            Item *item = [items objectAtIndex:indexPath.row];
+            ItemDetailViewController *itemDetailVC = segue.destinationViewController;
+            
+            itemDetailVC.item = [[Item alloc] init];
+            itemDetailVC.item = item;
+        }
     }
+    
+    if ([segue.identifier isEqualToString:@"toAddItem"])
+    {
+//        AddItemViewController *addItemVC = segue.destinationViewController;
+//        addItemVC.modalPresentationStyle = UIModalPresentationFormSheet;
+    }
+        //        NSLog(@"test");
 }
 
 @end
