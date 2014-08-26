@@ -11,9 +11,9 @@
 
 @interface ItemDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UIPopoverControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *nameTextField;
-@property (strong, nonatomic) IBOutlet UITextField *serialTextField;
-@property (strong, nonatomic) IBOutlet UITextField *valueTextField;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *serialLabel;
+@property (strong, nonatomic) IBOutlet UILabel *valueLabel;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIToolbar *toolBar;
@@ -43,9 +43,9 @@
 //    self.serialTextField.delegate = self;
 //    self.valueTextField.delegate = self;
     
-    self.nameTextField.text = self.item.name;
-    self.serialTextField.text = self.item.serialNumber;
-    self.valueTextField.text = [NSString stringWithFormat:@"$%i", self.item.value];
+    self.nameLabel.text = self.item.name;
+    self.serialLabel.text = self.item.serialNumber;
+    self.valueLabel.text = [NSString stringWithFormat:@"$%i", self.item.value];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterLongStyle];
@@ -91,15 +91,6 @@
 
 #pragma mark - IBAction Methods
 
-- (IBAction)saveButtonPressed:(UIBarButtonItem *)sender
-{
-
-}
-
-- (IBAction)cancelButtonPressed:(id)sender
-{
-
-}
 
 - (IBAction)cameraButtonPressed:(id)sender
 {
@@ -171,12 +162,6 @@
         // dismiss modal image picker
         [self dismissViewControllerAnimated:YES completion:nil];
     }
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
 }
 
 /*

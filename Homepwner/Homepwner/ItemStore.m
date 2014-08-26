@@ -80,6 +80,12 @@
     return item; 
 }
 
+- (void) addItem:(Item *) item
+{
+    // add item to privateItems array
+    [self.privateItems addObject:item]; 
+}
+
 - (void)removeItem:(Item *)item
 {
     [self.privateItems removeObjectIdenticalTo:item];
