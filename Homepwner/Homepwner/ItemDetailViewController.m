@@ -24,12 +24,16 @@
 
 @implementation ItemDetailViewController
 
+#pragma mark- Init Methods
+
+
 #pragma mark - View...
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     // Do any additional setup after loading the view.
+
     
     UIInterfaceOrientation io = [[UIApplication sharedApplication] statusBarOrientation];
     [self prepareViewForOrientation:io];
@@ -86,6 +90,16 @@
 }
 
 #pragma mark - IBAction Methods
+
+- (IBAction)saveButtonPressed:(UIBarButtonItem *)sender
+{
+
+}
+
+- (IBAction)cancelButtonPressed:(id)sender
+{
+
+}
 
 - (IBAction)cameraButtonPressed:(id)sender
 {
