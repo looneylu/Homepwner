@@ -18,7 +18,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *valueTextField;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 @property (strong, nonatomic) UIPopoverController *imagePickerPopOver;
 
@@ -39,7 +39,7 @@
     [self prepareViewForOrientation:io];
     
     // save button should be disabled when view first appears since fields will be empty
-    self.saveButton.enabled = NO;
+    self.doneButton.enabled = NO;
     
     // make sure text fields respond to delegate methods
     self.itemNameTextField.delegate = self;
@@ -85,25 +85,11 @@
 
 #pragma mark - IBAction Methods
 
-- (IBAction)saveButtonPressed:(id)sender
-{
-    if (!self.item)
-    {
-        // retrieve item information
-        self.item = [[Item alloc] initWithItemName:self.itemNameTextField.text
-                                    valueInDollars:[self.valueTextField.text intValue]
-                                      serialNumber:self.serialTextField.text];
-    }
-    
-    // save item to item store
-    [[ItemStore sharedStore] addItem:self.item];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-
-}
-
 - (IBAction)cancelButtonPressed:(id)sender
 {
+    if (self.item)
+        [[ItemStore sharedStore] removeItem:self.item];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -153,6 +139,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    NSLog(@"testing"); 
     [textField resignFirstResponder];
     
     if ([self.itemNameTextField.text length] > 0 && [self.serialTextField.text length] > 0 && [self.valueTextField.text length] > 0)
@@ -160,8 +147,10 @@
         self.item = [[Item alloc] initWithItemName:self.itemNameTextField.text
                                     valueInDollars:[self.valueTextField.text intValue]
                                       serialNumber:self.serialTextField.text];
+        
+        [[ItemStore sharedStore] addItem:self.item]; 
     
-        self.saveButton.enabled = YES;
+        self.doneButton.enabled = YES;
     }
     
     return YES;

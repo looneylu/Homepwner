@@ -34,7 +34,7 @@
 {
     [super viewWillAppear:animated];
     
-    [self.tableView reloadData]; 
+    [self.tableView reloadData];
 }
 
 
@@ -61,7 +61,7 @@
     NSArray *items = [[ItemStore sharedStore] allItems];
     Item *item = [items objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [item description]; 
+    cell.textLabel.text = [item description];
     
     return cell;
 }
@@ -82,7 +82,7 @@
         Item *item = items[indexPath.row];
         [[ItemStore sharedStore] removeItem:item];
         
-//        [self.tableView reloadData];
+        //        [self.tableView reloadData];
         //remove the last row from array
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
@@ -90,12 +90,12 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    [[ItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row]; 
+    [[ItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"toDetailView" sender:indexPath]; 
+    [self performSegueWithIdentifier:@"toDetailView" sender:indexPath];
 }
 
 #pragma mark - IBAction Methods
@@ -118,18 +118,21 @@
 
 - (IBAction)addButtonPressed:(UIBarButtonItem *)sender
 {
-//    // create a new Item and add it to the store
-//    [[ItemStore sharedStore] createItem];
-//    [self.tableView reloadData];
-
+    [self performSegueWithIdentifier:@"toAddItem" sender:nil]; 
 }
 
 #pragma mark - Navigation
 
+- (IBAction)saveButtonPressed:(UIStoryboardSegue *)segue
+{
+    [self.tableView reloadData];
+    [self dismissViewControllerAnimated:YES completion:nil]; 
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-   if ([segue.destinationViewController isKindOfClass:[ItemDetailViewController class]])
+    if ([segue.destinationViewController isKindOfClass:[ItemDetailViewController class]])
     {
         if ([segue.identifier isEqualToString:@"toDetailView"])
         {
@@ -146,10 +149,10 @@
     
     if ([segue.identifier isEqualToString:@"toAddItem"])
     {
-//        AddItemViewController *addItemVC = segue.destinationViewController;
-//        addItemVC.modalPresentationStyle = UIModalPresentationFormSheet;
+                AddItemViewController *addItemVC = segue.destinationViewController;
+                addItemVC.modalPresentationStyle = UIModalPresentationFormSheet;
     }
-        //        NSLog(@"test");
+    //        NSLog(@"test");
 }
 
 @end

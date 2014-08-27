@@ -13,5 +13,6 @@
 
 @property (nonatomic, strong) Item *item;
 @property (nonatomic) UIModalPresentationStyle modalPresentationStyle;
+@property (nonatomic, copy) void ( ^dismissBlock)(void);
 
 @end
