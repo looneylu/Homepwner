@@ -125,6 +125,7 @@
 
 - (IBAction)saveButtonPressed:(UIStoryboardSegue *)segue
 {
+    // dismiss AddItemViewController which is presented modally
     [self.tableView reloadData];
     [self dismissViewControllerAnimated:YES completion:nil]; 
 }

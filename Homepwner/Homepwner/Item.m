@@ -64,4 +64,33 @@
     return newItem;
 }
 
+#pragma mark - Archiving
+
+- (void) encodeWithCoder:(NSCoder *)aCoder
+{
+    // encode properties into NSCoder object pass into method for archiving purposes
+    [aCoder encodeObject:self.name forKey:@"itemName"];
+    [aCoder encodeObject:self.serialNumber forKey:@"serialNumber"];
+    [aCoder encodeObject:self.dateOfCreation forKey:@"dateCreated"];
+    [aCoder encodeObject:self.key forKey:@"itemKey"];
+    [aCoder encodeInt:self.value forKey:@"valueInDollars"];
+}
+
+- (instancetype) initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    
+    if (self)
+    {
+        _name = [aDecoder decodeObjectForKey:@"itemName"];
+        _serialNumber = [aDecoder decodeObjectForKey:@"serialNumber"];
+        _dateOfCreation = [aDecoder decodeObjectForKey:@"dateCreated"];
+        _key = [aDecoder decodeObjectForKey:@"itemKey"];
+        
+        _value = [aDecoder decodeIntForKey:@"valueInDollars"];
+    }
+    
+    return self; 
+}
+
 @end

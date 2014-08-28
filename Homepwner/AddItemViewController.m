@@ -139,7 +139,6 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSLog(@"testing"); 
     [textField resignFirstResponder];
     
     if ([self.itemNameTextField.text length] > 0 && [self.serialTextField.text length] > 0 && [self.valueTextField.text length] > 0)
@@ -160,8 +159,6 @@
 {
     // Get picked image from infor dictionary
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    
-    NSLog(@"%@", self.item.key);
     
     // store the image in the ImageStore for this key
     [[ImageStore sharedStore] setImage:image forKey:self.item.key];
