@@ -127,7 +127,13 @@
 {
     // dismiss AddItemViewController which is presented modally
     [self.tableView reloadData];
-    [self dismissViewControllerAnimated:YES completion:nil]; 
+    
+    // if device is an iPad
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+
 }
 
 

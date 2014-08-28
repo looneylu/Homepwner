@@ -47,6 +47,14 @@
 {
     self = [super init];
     
+    // load previously saved items
+    NSString *path = [self itemArchivePath];
+    _privateItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    
+    // if the array hadn't been saved previously, create a new empty one
+    if (!_privateItems)
+        _privateItems = [[NSMutableArray alloc] init];
+    
     return self;
 }
 
@@ -72,7 +80,7 @@
 
 - (Item *) createItem
 {
-    Item *item = [Item randomItem];
+    Item *item = [[Item alloc]init];
     
     // add item to privateItems array
     [self.privateItems addObject:item];
