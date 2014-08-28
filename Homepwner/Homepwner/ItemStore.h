@@ -19,6 +19,7 @@
 - (void) removeItem:(Item *)item;
 - (void) moveItemAtIndex:(NSUInteger)fromIndex
                  toIndex:(NSUInteger)toIndex;
-- (void) addItem:(Item *) item; 
+- (void) addItem:(Item *) item;
+- (BOOL) saveChanges; 
 
 @end

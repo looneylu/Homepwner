@@ -107,4 +107,30 @@
     [self.privateItems insertObject:item atIndex:toIndex];
 }
 
+#pragma mark - Archiving
+
+- (NSString *)itemArchivePath
+{
+    // Instances of Item will be savex to a single file in the Documents diectory
+    // ItemStore will handle the writing to and reading from that file. To do this, ItemStore
+    // need to construct a path to this file
+    
+    // make sure that the first argument is NSDocumentDirectory
+    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    // get the one document directory from that list
+    NSString *documentDirectory = [documentDirectories firstObject];
+    
+    return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
+}
+
+- (BOOL) saveChanges
+{
+    NSString *path = [self itemArchivePath];
+    
+    // return YES on success
+    return  [NSKeyedArchiver archiveRootObject:self.privateItems
+                                        toFile:path];
+}
+
 @end
