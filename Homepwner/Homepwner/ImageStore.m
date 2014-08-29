@@ -34,7 +34,6 @@
     return sharedStore;
 }
 
-
 // no one should call init
 -(instancetype)init
 {

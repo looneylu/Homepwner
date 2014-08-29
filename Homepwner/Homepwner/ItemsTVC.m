@@ -11,6 +11,7 @@
 #import "Item.h"
 #import "ItemDetailViewController.h"
 #import "AddItemViewController.h"
+#import "ImageStore.h"
 
 @interface ItemsTVC () <UITableViewDataSource, UITableViewDelegate>
 
@@ -61,7 +62,10 @@
     NSArray *items = [[ItemStore sharedStore] allItems];
     Item *item = [items objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [item description];
+    // configure cell
+    cell.textLabel.text = item.name;
+    cell.detailTextLabel.text = item.serialNumber;
+    cell.imageView.image = [[ImageStore sharedStore] imageForKey:item.key]; 
     
     return cell;
 }
