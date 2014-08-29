@@ -51,8 +51,20 @@
     
     if (self)
         _dictionary = [[NSMutableDictionary alloc] init];
+    
+    // register ImageStore as an observer with notification center for low memory warnings
+    // when a low-memory warning is posted, the notification center will send the message clearCache:
+    // to ImageStore instance
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self
+           selector:@selector(clearCache:)
+               name:UIApplicationDidReceiveMemoryWarningNotification
+             object:nil];
+    
     return self;
 }
+
+#pragma mark - Methods
 
 - (void)setImage:(UIImage *)image forKey:(NSString *)key
 {
@@ -114,6 +126,14 @@
     NSString *documentDirectory = [documentDirectories firstObject];
     
     return [documentDirectory stringByAppendingString:key];
+}
+
+#pragma mark - Memory
+
+- (void) clearCache:(NSNotification *)note
+{
+    NSLog(@"flushing %d images out of the cache", [self.dictionary count]);
+    [self.dictionary removeAllObjects]; 
 }
 
 @end
