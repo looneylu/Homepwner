@@ -29,7 +29,7 @@
 
     // multi-thread safe singleton
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{ sharedStore = [[self alloc] initPrivate];}); 
+    dispatch_once(&onceToken, ^{ sharedStore = [[self alloc] initPrivate];});
     
     return sharedStore;
 }
@@ -58,6 +58,15 @@
 {
 //    [self.dictionary setObject:image forKey:key];
     self.dictionary[key] = image;
+
+    // create a full path for image
+    NSString *imagePath = [self imagePathForKey:key];
+    
+    // turn image into jpeg data
+    NSData *data = UIImageJPEGRepresentation(image, .8);
+    
+    //write image to full path
+    [data writeToFile:imagePath atomically:YES];
 }
 
 - (UIImage *)imageForKey:(NSString *)key
@@ -70,8 +79,21 @@
     if (!key)
         return;
     
-    [self.dictionary removeObjectForKey:key]; 
+    [self.dictionary removeObjectForKey:key];
+    
+    // when an image is deleted from store, it is also deleted from file system
+    NSString *imagePath = [self imagePathForKey:key];
+    [[NSFileManager defaultManager] removeItemAtPath:imagePath error:nil]; 
 }
 
+#pragma mark - Archiving
+
+- (NSString *)imagePathForKey:(NSString *)key
+{
+    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory = [documentDirectories firstObject];
+    
+    return [documentDirectory stringByAppendingString:key];
+}
 
 @end
