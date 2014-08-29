@@ -71,7 +71,27 @@
 
 - (UIImage *)imageForKey:(NSString *)key
 {
-    return self.dictionary[key];
+    // if possible, get picture from the dictionary
+    UIImage *result = self.dictionary[key];
+    
+    if(!result)
+    {
+        NSString *imagePath = [self imagePathForKey:key];
+        
+        // create UIImage object from file
+        result = [UIImage imageWithContentsOfFile:imagePath];
+        
+        // if there is an image on the file system, place it into cache
+        if (result)
+        {
+            self.dictionary[key] = result;
+        }
+        else
+        {
+            NSLog(@"Error: unable to find %@", [self imagePathForKey:key]);
+        }
+    }
+    return result;
 }
 
 - (void)deleteImageForKey:(NSString *)key
@@ -83,7 +103,7 @@
     
     // when an image is deleted from store, it is also deleted from file system
     NSString *imagePath = [self imagePathForKey:key];
-    [[NSFileManager defaultManager] removeItemAtPath:imagePath error:nil]; 
+    [[NSFileManager defaultManager] removeItemAtPath:imagePath error:nil];
 }
 
 #pragma mark - Archiving
