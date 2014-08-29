@@ -10,4 +10,10 @@
 
 @interface ItemCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UIImageView *cellImageView;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *serialNumberLabel;
+@property (strong, nonatomic) IBOutlet UILabel *valueLabel;
+
+
 @end

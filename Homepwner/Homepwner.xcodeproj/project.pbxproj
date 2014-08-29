@@ -12,6 +12,7 @@
 		841B1ED719A97B71000387BE /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B1ED619A97B71000387BE /* ImageStore.m */; };
 		841B1EE219AC3B2F000387BE /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B1EE119AC3B2F000387BE /* AddItemViewController.m */; };
 		841B1EE819B0BE75000387BE /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B1EE719B0BE75000387BE /* ItemCell.m */; };
+		841B1EEB19B0C2C7000387BE /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841B1EEA19B0C2C7000387BE /* ItemCell.xib */; };
 		84450AC819A924FB00529EBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84450AC719A924FB00529EBC /* Foundation.framework */; };
 		84450ACA19A924FB00529EBC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84450AC919A924FB00529EBC /* CoreGraphics.framework */; };
 		84450ACC19A924FC00529EBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84450ACB19A924FC00529EBC /* UIKit.framework */; };
@@ -50,6 +51,7 @@
 		841B1EE119AC3B2F000387BE /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddItemViewController.m; path = ../AddItemViewController.m; sourceTree = "<group>"; };
 		841B1EE619B0BE75000387BE /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
 		841B1EE719B0BE75000387BE /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
+		841B1EEA19B0C2C7000387BE /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		84450AC419A924FB00529EBC /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84450AC719A924FB00529EBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84450AC919A924FB00529EBC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -107,6 +109,7 @@
 		841B1EE919B0BE7C000387BE /* Item UITableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				841B1EEA19B0C2C7000387BE /* ItemCell.xib */,
 				841B1EE619B0BE75000387BE /* ItemCell.h */,
 				841B1EE719B0BE75000387BE /* ItemCell.m */,
 			);
@@ -290,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841B1EEB19B0C2C7000387BE /* ItemCell.xib in Resources */,
 				84450AE019A924FC00529EBC /* Images.xcassets in Resources */,
 				84450AD219A924FC00529EBC /* InfoPlist.strings in Resources */,
 				84450ADB19A924FC00529EBC /* Main.storyboard in Resources */,
