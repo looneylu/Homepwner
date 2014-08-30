@@ -13,11 +13,14 @@
 #import "AddItemViewController.h"
 #import "ImageStore.h"
 #include "ItemCell.h"
+#include "ImageViewController.h"
 
-@interface ItemsTVC () <UITableViewDataSource, UITableViewDelegate>
+@interface ItemsTVC () <UITableViewDataSource, UITableViewDelegate, UIPopoverControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton;
+
+@property (nonatomic, strong) UIPopoverController *imagePopover;
 
 @end
 
@@ -77,7 +80,32 @@
     cell.imageView.image = [[ImageStore sharedStore] imageForKey:item.key];
     
     cell.actionBlock = ^{
-        NSLog(@"Going to show image for %@", item);
+        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+        {
+            
+            NSString *itemKey = item.key;
+            
+            // if there is no image, no need to display anything
+            UIImage *image = [[ImageStore sharedStore] imageForKey:itemKey];
+            if (!image)
+                return ;
+            
+            // make a rectangle for the frame of the thumbnail relative to self.tableView
+            CGRect rect = [self.view convertRect:cell.imageView.bounds fromView:cell.imageView];
+            
+            // create a new ImageViewController and set its image
+            ImageViewController *ivc = [[ImageViewController alloc] init];
+            ivc.image = image;
+            
+            // present a 600x600 popover from the rect
+            self.imagePopover = [[UIPopoverController alloc] initWithContentViewController:ivc];
+            self.imagePopover.delegate = self;
+            self.imagePopover.popoverContentSize = CGSizeMake(600, 600);
+            [self.imagePopover presentPopoverFromRect:rect
+                                               inView:self.view
+                             permittedArrowDirections:UIPopoverArrowDirectionAny
+                                             animated:YES];
+        }
     };
     
     return cell;
@@ -113,6 +141,13 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"toDetailView" sender:indexPath];
+}
+
+#pragma mark - UIPopove Delegate
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    self.imagePopover = nil; 
 }
 
 #pragma mark - IBAction Methods

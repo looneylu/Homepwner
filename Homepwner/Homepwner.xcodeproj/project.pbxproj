@@ -12,6 +12,7 @@
 		841B1ED719A97B71000387BE /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B1ED619A97B71000387BE /* ImageStore.m */; };
 		841B1EE219AC3B2F000387BE /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B1EE119AC3B2F000387BE /* AddItemViewController.m */; };
 		841B1EE819B0BE75000387BE /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B1EE719B0BE75000387BE /* ItemCell.m */; };
+		841B1EEE19B20609000387BE /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B1EED19B20609000387BE /* ImageViewController.m */; };
 		84450AC819A924FB00529EBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84450AC719A924FB00529EBC /* Foundation.framework */; };
 		84450ACA19A924FB00529EBC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84450AC919A924FB00529EBC /* CoreGraphics.framework */; };
 		84450ACC19A924FC00529EBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84450ACB19A924FC00529EBC /* UIKit.framework */; };
@@ -50,6 +51,8 @@
 		841B1EE119AC3B2F000387BE /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddItemViewController.m; path = ../AddItemViewController.m; sourceTree = "<group>"; };
 		841B1EE619B0BE75000387BE /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
 		841B1EE719B0BE75000387BE /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
+		841B1EEC19B20609000387BE /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		841B1EED19B20609000387BE /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		84450AC419A924FB00529EBC /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84450AC719A924FB00529EBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84450AC919A924FB00529EBC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -191,6 +194,8 @@
 		84450B0419A9261800529EBC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				841B1EEC19B20609000387BE /* ImageViewController.h */,
+				841B1EED19B20609000387BE /* ImageViewController.m */,
 				841B1EE019AC3B2F000387BE /* AddItemViewController.h */,
 				841B1EE119AC3B2F000387BE /* AddItemViewController.m */,
 				841B1ED219A9618F000387BE /* ItemDetailViewController.h */,
@@ -311,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841B1EEE19B20609000387BE /* ImageViewController.m in Sources */,
 				841B1EE819B0BE75000387BE /* ItemCell.m in Sources */,
 				841B1ECE19A9339B000387BE /* Item.m in Sources */,
 				841B1EE219AC3B2F000387BE /* AddItemViewController.m in Sources */,
