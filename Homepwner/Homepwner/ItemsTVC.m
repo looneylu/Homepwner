@@ -12,6 +12,7 @@
 #import "ItemDetailViewController.h"
 #import "AddItemViewController.h"
 #import "ImageStore.h"
+#include "ItemCell.h"
 
 @interface ItemsTVC () <UITableViewDataSource, UITableViewDelegate>
 
@@ -56,16 +57,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    ItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
     NSArray *items = [[ItemStore sharedStore] allItems];
     Item *item = [items objectAtIndex:indexPath.row];
     
+    
+    
     // configure cell
-    cell.textLabel.text = item.name;
-    cell.detailTextLabel.text = item.serialNumber;
-    cell.imageView.image = [[ImageStore sharedStore] imageForKey:item.key]; 
+//    cell.textLabel.text = item.name;
+//    cell.detailTextLabel.text = item.serialNumber;
+//    cell.imageView.image = [[ImageStore sharedStore] imageForKey:item.key];
+
+    cell.nameLabel.text = item.name;
+    cell.serialNumberLabel.text = item.serialNumber;
+    cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.value];
+    cell.imageView.image = [[ImageStore sharedStore] imageForKey:item.key];
     
     return cell;
 }
