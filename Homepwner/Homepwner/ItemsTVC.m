@@ -79,7 +79,10 @@
     cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.value];
     cell.imageView.image = [[ImageStore sharedStore] imageForKey:item.key];
     
+    // actionBlock should have a weak reference to cell to avoid retain cycle
+    __weak ItemCell *weakCell = cell;
     cell.actionBlock = ^{
+        ItemCell *strongCell = weakCell;
         if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
         {
             
@@ -91,7 +94,7 @@
                 return ;
             
             // make a rectangle for the frame of the thumbnail relative to self.tableView
-            CGRect rect = [self.view convertRect:cell.imageView.bounds fromView:cell.imageView];
+            CGRect rect = [self.view convertRect:strongCell.imageView.bounds fromView:strongCell.imageView];
             
             // create a new ImageViewController and set its image
             ImageViewController *ivc = [[ImageViewController alloc] init];
@@ -147,7 +150,7 @@
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    self.imagePopover = nil; 
+    self.imagePopover = nil;
 }
 
 #pragma mark - IBAction Methods
