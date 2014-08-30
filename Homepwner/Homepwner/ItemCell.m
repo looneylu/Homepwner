@@ -31,4 +31,12 @@
     // Configure the view for the selected state
 }
 
+#pragma mark - IBActions
+
+- (IBAction)thumbnailButtonPressed:(UIButton *)sender
+{
+    if (self.actionBlock)
+        self.actionBlock();
+}
+
 @end

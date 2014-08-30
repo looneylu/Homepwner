@@ -65,14 +65,31 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r80-p8-h8A">
+                                                    <rect key="frame" x="20" y="0.0" width="43" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="43" id="vkR-Id-EPL"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="thumbnailButtonPressed:" destination="UjM-NJ-0kS" eventType="touchUpInside" id="bk1-7w-UaK"/>
+                                                        <action selector="thumbnailButtonPressed:" destination="pPP-5s-KOm" eventType="touchUpInside" id="lse-GJ-hKW"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Uby-9r-2h5" firstAttribute="leading" secondItem="cHB-YE-mAF" secondAttribute="trailing" constant="28" id="3vE-eT-sjU"/>
+                                                <constraint firstItem="r80-p8-h8A" firstAttribute="top" secondItem="nQN-3d-kMY" secondAttribute="top" id="7Kc-Zb-Ypo"/>
                                                 <constraint firstAttribute="bottom" secondItem="sbc-Q2-RMv" secondAttribute="bottom" constant="6" id="BEd-JH-BUY"/>
                                                 <constraint firstItem="S4T-W4-fWa" firstAttribute="leading" secondItem="cHB-YE-mAF" secondAttribute="trailing" constant="28" id="EcR-Cv-Nik"/>
+                                                <constraint firstItem="r80-p8-h8A" firstAttribute="leading" secondItem="nQN-3d-kMY" secondAttribute="leading" constant="20" id="JIT-y2-RDq"/>
                                                 <constraint firstAttribute="bottom" secondItem="cHB-YE-mAF" secondAttribute="bottom" id="KNm-0N-Al6"/>
                                                 <constraint firstItem="S4T-W4-fWa" firstAttribute="top" secondItem="nQN-3d-kMY" secondAttribute="top" id="Mvd-Gv-izb"/>
                                                 <constraint firstAttribute="bottom" secondItem="Uby-9r-2h5" secondAttribute="bottom" id="Vvl-wa-6Bn"/>
+                                                <constraint firstAttribute="bottom" secondItem="r80-p8-h8A" secondAttribute="bottom" id="aXk-22-Yp2"/>
                                                 <constraint firstItem="sbc-Q2-RMv" firstAttribute="top" secondItem="nQN-3d-kMY" secondAttribute="top" constant="7" id="cBY-WL-GwF"/>
                                                 <constraint firstAttribute="trailing" secondItem="sbc-Q2-RMv" secondAttribute="trailing" constant="20" id="pK0-Iu-YTa"/>
                                                 <constraint firstItem="cHB-YE-mAF" firstAttribute="leading" secondItem="nQN-3d-kMY" secondAttribute="leading" constant="20" id="q7g-uO-pGd"/>

@@ -15,5 +15,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *serialNumberLabel;
 @property (strong, nonatomic) IBOutlet UILabel *valueLabel;
 
+@property (nonatomic, copy) void (^actionBlock)(void);
+
 
 @end

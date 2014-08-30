@@ -76,6 +76,10 @@
     cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.value];
     cell.imageView.image = [[ImageStore sharedStore] imageForKey:item.key];
     
+    cell.actionBlock = ^{
+        NSLog(@"Going to show image for %@", item);
+    };
+    
     return cell;
 }
 
