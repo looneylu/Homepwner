@@ -67,13 +67,7 @@
     NSArray *items = [[ItemStore sharedStore] allItems];
     Item *item = [items objectAtIndex:indexPath.row];
     
-    
-    
     // configure cell
-//    cell.textLabel.text = item.name;
-//    cell.detailTextLabel.text = item.serialNumber;
-//    cell.imageView.image = [[ImageStore sharedStore] imageForKey:item.key];
-
     cell.nameLabel.text = item.name;
     cell.serialNumberLabel.text = item.serialNumber;
     cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.value];
@@ -85,7 +79,6 @@
         ItemCell *strongCell = weakCell;
         if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
         {
-            
             NSString *itemKey = item.key;
             
             // if there is no image, no need to display anything
@@ -191,7 +184,6 @@
 
 }
 
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.destinationViewController isKindOfClass:[ItemDetailViewController class]])
@@ -214,7 +206,6 @@
                 AddItemViewController *addItemVC = segue.destinationViewController;
                 addItemVC.modalPresentationStyle = UIModalPresentationFormSheet;
     }
-    //        NSLog(@"test");
 }
 
 @end
