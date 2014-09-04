@@ -28,6 +28,8 @@
 		84450AF319A924FC00529EBC /* HomepwnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84450AF219A924FC00529EBC /* HomepwnerTests.m */; };
 		84450B0719A9263100529EBC /* ItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84450B0619A9263100529EBC /* ItemStore.m */; };
 		84450B0E19A92DAE00529EBC /* ItemsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84450B0D19A92DAE00529EBC /* ItemsTVC.m */; };
+		84E2C79019B8F6D600786C0B /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84E2C78E19B8F6D600786C0B /* Homepwner.xcdatamodeld */; };
+		84E2C79419B8F94600786C0B /* ImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E2C79319B8F94600786C0B /* ImageTransformer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,9 @@
 		84450B0619A9263100529EBC /* ItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemStore.m; sourceTree = "<group>"; };
 		84450B0C19A92DAE00529EBC /* ItemsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsTVC.h; sourceTree = "<group>"; };
 		84450B0D19A92DAE00529EBC /* ItemsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsTVC.m; sourceTree = "<group>"; };
+		84E2C78F19B8F6D600786C0B /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
+		84E2C79219B8F94600786C0B /* ImageTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTransformer.h; sourceTree = "<group>"; };
+		84E2C79319B8F94600786C0B /* ImageTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTransformer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +161,7 @@
 				84450B0419A9261800529EBC /* View Controllers */,
 				841B1EE919B0BE7C000387BE /* Item UITableViewCell */,
 				84450B0819A9263A00529EBC /* Model */,
+				84E2C79119B8F6DE00786C0B /* Core Data */,
 				84450ADF19A924FC00529EBC /* Images.xcassets */,
 				84450ACE19A924FC00529EBC /* Supporting Files */,
 			);
@@ -217,6 +223,16 @@
 				84450B0619A9263100529EBC /* ItemStore.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		84E2C79119B8F6DE00786C0B /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				84E2C78E19B8F6D600786C0B /* Homepwner.xcdatamodeld */,
+				84E2C79219B8F94600786C0B /* ImageTransformer.h */,
+				84E2C79319B8F94600786C0B /* ImageTransformer.m */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,7 +337,9 @@
 				841B1ECE19A9339B000387BE /* Item.m in Sources */,
 				841B1EE219AC3B2F000387BE /* AddItemViewController.m in Sources */,
 				84450B0E19A92DAE00529EBC /* ItemsTVC.m in Sources */,
+				84E2C79019B8F6D600786C0B /* Homepwner.xcdatamodeld in Sources */,
 				841B1ED719A97B71000387BE /* ImageStore.m in Sources */,
+				84E2C79419B8F94600786C0B /* ImageTransformer.m in Sources */,
 				84450AD819A924FC00529EBC /* AppDelegate.m in Sources */,
 				84450B0719A9263100529EBC /* ItemStore.m in Sources */,
 				841B1ED419A9618F000387BE /* ItemDetailViewController.m in Sources */,
@@ -546,6 +564,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		84E2C78E19B8F6D600786C0B /* Homepwner.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84E2C78F19B8F6D600786C0B /* Homepwner.xcdatamodel */,
+			);
+			currentVersion = 84E2C78F19B8F6D600786C0B /* Homepwner.xcdatamodel */;
+			path = Homepwner.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 84450ABC19A924FB00529EBC /* Project object */;
 }
