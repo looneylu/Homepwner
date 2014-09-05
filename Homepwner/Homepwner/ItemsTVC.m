@@ -79,6 +79,7 @@
         ItemCell *strongCell = weakCell;
         if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
         {
+            
             NSString *itemKey = item.key;
             
             // if there is no image, no need to display anything
@@ -184,6 +185,7 @@
 
 }
 
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.destinationViewController isKindOfClass:[ItemDetailViewController class]])
@@ -206,6 +208,7 @@
                 AddItemViewController *addItemVC = segue.destinationViewController;
                 addItemVC.modalPresentationStyle = UIModalPresentationFormSheet;
     }
+    //        NSLog(@"test");
 }
 
 @end
