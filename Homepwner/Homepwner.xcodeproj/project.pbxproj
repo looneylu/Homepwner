@@ -29,6 +29,7 @@
 		84450B0719A9263100529EBC /* ItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84450B0619A9263100529EBC /* ItemStore.m */; };
 		84450B0E19A92DAE00529EBC /* ItemsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84450B0D19A92DAE00529EBC /* ItemsTVC.m */; };
 		84E2C7B519B9666500786C0B /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84E2C7B319B9666500786C0B /* Homepwner.xcdatamodeld */; };
+		84E2C7B919B96A5400786C0B /* ImageTransformerr.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E2C7B819B96A5400786C0B /* ImageTransformerr.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		84450B0C19A92DAE00529EBC /* ItemsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsTVC.h; sourceTree = "<group>"; };
 		84450B0D19A92DAE00529EBC /* ItemsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsTVC.m; sourceTree = "<group>"; };
 		84E2C7B419B9666500786C0B /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
+		84E2C7B719B96A5400786C0B /* ImageTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTransformer.h; sourceTree = "<group>"; };
+		84E2C7B819B96A5400786C0B /* ImageTransformerr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTransformerr.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +229,8 @@
 			isa = PBXGroup;
 			children = (
 				84E2C7B319B9666500786C0B /* Homepwner.xcdatamodeld */,
+				84E2C7B719B96A5400786C0B /* ImageTransformer.h */,
+				84E2C7B819B96A5400786C0B /* ImageTransformerr.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 			files = (
 				841B1EEE19B20609000387BE /* ImageViewController.m in Sources */,
 				841B1EE819B0BE75000387BE /* ItemCell.m in Sources */,
+				84E2C7B919B96A5400786C0B /* ImageTransformerr.m in Sources */,
 				841B1ECE19A9339B000387BE /* Item.m in Sources */,
 				841B1EE219AC3B2F000387BE /* AddItemViewController.m in Sources */,
 				84450B0E19A92DAE00529EBC /* ItemsTVC.m in Sources */,
