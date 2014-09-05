@@ -67,13 +67,7 @@
     NSArray *items = [[ItemStore sharedStore] allItems];
     Item *item = [items objectAtIndex:indexPath.row];
     
-    
-    
     // configure cell
-//    cell.textLabel.text = item.name;
-//    cell.detailTextLabel.text = item.serialNumber;
-//    cell.imageView.image = [[ImageStore sharedStore] imageForKey:item.key];
-
     cell.nameLabel.text = item.name;
     cell.serialNumberLabel.text = item.serialNumber;
     cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.value];
