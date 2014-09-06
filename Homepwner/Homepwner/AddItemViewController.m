@@ -9,7 +9,7 @@
 #import "AddItemViewController.h"
 #import "ImageStore.h"
 #import "ItemStore.h"
-#import "Item+AddOn.h"
+
 
 @interface AddItemViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UIPopoverControllerDelegate>
 
@@ -144,7 +144,7 @@
     if ([self.itemNameTextField.text length] > 0 && [self.serialTextField.text length] > 0 && [self.valueTextField.text length] > 0)
     {
         self.item = [[Item alloc] initWithItemName:self.itemNameTextField.text
-                                    valueInDollars: [NSNumber numberWithInt:[self.valueTextField.text intValue]]
+                                    valueInDollars:[self.valueTextField.text intValue]
                                       serialNumber:self.serialTextField.text];
         
         [[ItemStore sharedStore] addItem:self.item]; 
