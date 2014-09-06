@@ -70,7 +70,7 @@
     // configure cell
     cell.nameLabel.text = item.name;
     cell.serialNumberLabel.text = item.serialNumber;
-    cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.value];
+    cell.valueLabel.text = [NSString stringWithFormat:@"$%@", item.valueInDollars];
     cell.imageView.image = [[ImageStore sharedStore] imageForKey:item.key];
     
     // actionBlock should have a weak reference to cell to avoid retain cycle

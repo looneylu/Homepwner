@@ -45,11 +45,11 @@
     
     self.nameLabel.text = self.item.name;
     self.serialLabel.text = self.item.serialNumber;
-    self.valueLabel.text = [NSString stringWithFormat:@"$%i", self.item.value];
+    self.valueLabel.text = [NSString stringWithFormat:@"$%@", self.item.valueInDollars];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterLongStyle];
-    self.dateLabel.text = [formatter stringFromDate:self.item.dateOfCreation];
+    self.dateLabel.text = [formatter stringFromDate:self.item.dateCreated];
     
     // get image for corresponding key from the image store
     NSString *imageKey = self.item.key;

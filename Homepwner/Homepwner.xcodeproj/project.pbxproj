@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		841B1ECE19A9339B000387BE /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B1ECD19A9339B000387BE /* Item.m */; };
 		841B1ED419A9618F000387BE /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B1ED319A9618F000387BE /* ItemDetailViewController.m */; };
 		841B1ED719A97B71000387BE /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B1ED619A97B71000387BE /* ImageStore.m */; };
 		841B1EE219AC3B2F000387BE /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B1EE119AC3B2F000387BE /* AddItemViewController.m */; };
@@ -30,6 +29,9 @@
 		84450B0E19A92DAE00529EBC /* ItemsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84450B0D19A92DAE00529EBC /* ItemsTVC.m */; };
 		84E2C7B519B9666500786C0B /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84E2C7B319B9666500786C0B /* Homepwner.xcdatamodeld */; };
 		84E2C7B919B96A5400786C0B /* ImageTransformerr.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E2C7B819B96A5400786C0B /* ImageTransformerr.m */; };
+		84E2C7C819BA90C500786C0B /* AssetType.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E2C7C719BA90C500786C0B /* AssetType.m */; };
+		84E2C7CB19BA90C500786C0B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E2C7CA19BA90C500786C0B /* Item.m */; };
+		84E2C7CE19BB8AC600786C0B /* Item+AddOn.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E2C7CD19BB8AC600786C0B /* Item+AddOn.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +45,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		841B1ECC19A9339B000387BE /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
-		841B1ECD19A9339B000387BE /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		841B1ED219A9618F000387BE /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
 		841B1ED319A9618F000387BE /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
 		841B1ED519A97B71000387BE /* ImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStore.h; sourceTree = "<group>"; };
@@ -79,6 +79,12 @@
 		84E2C7B419B9666500786C0B /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
 		84E2C7B719B96A5400786C0B /* ImageTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTransformer.h; sourceTree = "<group>"; };
 		84E2C7B819B96A5400786C0B /* ImageTransformerr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTransformerr.m; sourceTree = "<group>"; };
+		84E2C7C619BA90C500786C0B /* AssetType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetType.h; sourceTree = "<group>"; };
+		84E2C7C719BA90C500786C0B /* AssetType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetType.m; sourceTree = "<group>"; };
+		84E2C7C919BA90C500786C0B /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		84E2C7CA19BA90C500786C0B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		84E2C7CC19BB8AC600786C0B /* Item+AddOn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Item+AddOn.h"; sourceTree = "<group>"; };
+		84E2C7CD19BB8AC600786C0B /* Item+AddOn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Item+AddOn.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,8 +223,6 @@
 			children = (
 				841B1ED519A97B71000387BE /* ImageStore.h */,
 				841B1ED619A97B71000387BE /* ImageStore.m */,
-				841B1ECC19A9339B000387BE /* Item.h */,
-				841B1ECD19A9339B000387BE /* Item.m */,
 				84450B0519A9263100529EBC /* ItemStore.h */,
 				84450B0619A9263100529EBC /* ItemStore.m */,
 			);
@@ -229,6 +233,12 @@
 			isa = PBXGroup;
 			children = (
 				84E2C7B319B9666500786C0B /* Homepwner.xcdatamodeld */,
+				84E2C7C619BA90C500786C0B /* AssetType.h */,
+				84E2C7C719BA90C500786C0B /* AssetType.m */,
+				84E2C7CC19BB8AC600786C0B /* Item+AddOn.h */,
+				84E2C7CD19BB8AC600786C0B /* Item+AddOn.m */,
+				84E2C7C919BA90C500786C0B /* Item.h */,
+				84E2C7CA19BA90C500786C0B /* Item.m */,
 				84E2C7B719B96A5400786C0B /* ImageTransformer.h */,
 				84E2C7B819B96A5400786C0B /* ImageTransformerr.m */,
 			);
@@ -332,18 +342,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84E2C7CB19BA90C500786C0B /* Item.m in Sources */,
 				841B1EEE19B20609000387BE /* ImageViewController.m in Sources */,
 				841B1EE819B0BE75000387BE /* ItemCell.m in Sources */,
 				84E2C7B919B96A5400786C0B /* ImageTransformerr.m in Sources */,
-				841B1ECE19A9339B000387BE /* Item.m in Sources */,
 				841B1EE219AC3B2F000387BE /* AddItemViewController.m in Sources */,
 				84450B0E19A92DAE00529EBC /* ItemsTVC.m in Sources */,
 				84E2C7B519B9666500786C0B /* Homepwner.xcdatamodeld in Sources */,
 				841B1ED719A97B71000387BE /* ImageStore.m in Sources */,
 				84450AD819A924FC00529EBC /* AppDelegate.m in Sources */,
+				84E2C7CE19BB8AC600786C0B /* Item+AddOn.m in Sources */,
 				84450B0719A9263100529EBC /* ItemStore.m in Sources */,
 				841B1ED419A9618F000387BE /* ItemDetailViewController.m in Sources */,
 				84450AD419A924FC00529EBC /* main.m in Sources */,
+				84E2C7C819BA90C500786C0B /* AssetType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

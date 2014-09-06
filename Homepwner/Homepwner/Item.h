@@ -2,24 +2,24 @@
 //  Item.h
 //  Homepwner
 //
-//  Created by Luis Carbuccia on 8/23/14.
+//  Created by Luis Carbuccia on 9/5/14.
 //  Copyright (c) 2014 Luis Carbuccia. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Item : NSObject <NSCoding>
+@class AssetType;
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *serialNumber;
-@property (nonatomic) int value;
-@property (nonatomic, strong) NSDate *dateOfCreation;
-@property (nonatomic, copy) NSString *key;
+@interface Item : NSManagedObject
 
-- (NSString *) description;
-+ (instancetype) randomItem;
-- (instancetype) initWithItemName:(NSString *)name
-                   valueInDollars:(int) value
-                     serialNumber:(NSString *)sNumber;
+@property (nonatomic, retain) NSDate * dateCreated;
+@property (nonatomic, retain) id image;
+@property (nonatomic, retain) NSString * key;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * orderingValue;
+@property (nonatomic, retain) NSString * serialNumber;
+@property (nonatomic, retain) NSNumber * valueInDollars;
+@property (nonatomic, retain) AssetType *items;
 
 @end
